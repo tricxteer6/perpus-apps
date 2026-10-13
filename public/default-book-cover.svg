@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="480" viewBox="0 0 320 480" role="img" aria-label="Cover buku bawaan">
+  <defs>
+    <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#315d76"/>
+      <stop offset="1" stop-color="#16314f"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="480" rx="18" fill="url(#cover)"/>
+  <path d="M72 112c42-16 81-16 124 0v218c-43-16-82-16-124 0V112Zm124 0c20-8 36-11 52-12v218c-16 1-32 4-52 12V112Z" fill="#fff" opacity=".92"/>
+  <path d="M160 111v219" stroke="#16314f" stroke-width="7" opacity=".38"/>
+  <text x="160" y="398" fill="#d8f0e4" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" letter-spacing="3">PUSTAKANUSA</text>
+</svg>
