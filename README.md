@@ -1,39 +1,43 @@
 # PustakaNusa
 
-Sistem Informasi Perpustakaan Digital berbasis Express.js dan MySQL. Implementasi ini melengkapi prototipe front-end menjadi aplikasi dengan autentikasi peran, katalog, peminjaman, pengembalian dan denda, pengaduan, notifikasi, serta laporan transaksi.
+PustakaNusa adalah aplikasi manajemen perpustakaan berbasis web dengan tiga peran: **Superadmin**, **Petugas**, dan **Pengguna**. Aplikasi mencakup pengelolaan koleksi, peminjaman berbasis QR, pengembalian, pengaduan, denda, pembayaran, notifikasi, dan pengelolaan akun.
 
-## Prasyarat
+Dokumentasi fitur dan panduan penggunaan lengkap tersedia di [DOKUMENTASI.md](./DOKUMENTASI.md).
 
-- Node.js 20 atau lebih baru
-- MySQL 8 atau lebih baru
+## Teknologi
+
+- Node.js dan Express.js
+- MySQL
+- JavaScript, HTML, dan CSS
+- JWT dan bcrypt
+- QR Code dan ZXing
+- Remix Icon
 
 ## Menjalankan aplikasi
 
-1. Salin konfigurasi lingkungan: `cp .env.example .env`, lalu isi kredensial MySQL pada `.env`.
-2. Buat database dan data demo: `mysql -u root -p < database/schema.sql`.
-3. Pasang dependensi: `pnpm install` atau `npm install`.
-4. Jalankan: `pnpm start` atau `npm start`.
-5. Buka `http://localhost:3000`.
+Prasyarat: Node.js 20+ dan MySQL 8+.
 
-Untuk pengembangan gunakan `pnpm dev`.
+```bash
+cp .env.example .env
+npm install
+mysql -u root -p < database/schema.sql
+npm run dev
+```
+
+Buka `http://localhost:3000`.
+
+Untuk menjalankan tanpa pemantau perubahan gunakan `node server.js`. Pemeriksaan sintaks dapat dijalankan dengan `npm run check`.
+
+## Konfigurasi
+
+Isi `.env` sesuai database lokal dan ganti `JWT_SECRET` dengan nilai acak yang kuat. Jangan mengunggah `.env` ke repository.
 
 ## Akun demo
 
 | Peran | Identitas | Kata sandi |
 |---|---|---|
+| Superadmin | `admin@pustakanusa.local` | `password` |
+| Petugas | `petugas@pustakanusa.local` | `password` |
 | Pengguna | `alya.rahma@email.id` | `password` |
-| Admin | `admin` | `password` |
 
 Ganti seluruh kata sandi demo sebelum aplikasi digunakan di lingkungan nyata.
-
-## Fitur
-
-- Login JWT untuk anggota, admin, dan petugas.
-- Katalog, pencarian, filter kategori, dan detail buku.
-- Pengajuan peminjaman dengan batas tiga buku aktif, cek stok, lokasi/jadwal pengambilan, dan jatuh tempo otomatis 30 hari.
-- Pengembalian oleh petugas, pembaruan stok, dan denda 10% harga buku untuk setiap kelipatan tujuh hari keterlambatan.
-- Pengaduan anggota dan pembaruan status oleh petugas.
-- Notifikasi transaksi peminjaman.
-- Dasbor admin, penambahan buku, serta laporan transaksi.
-
-Dokumentasi implementasi lengkap tersedia pada `docs/Dokumentasi_Implementasi_PustakaNusa.docx` dan versi Markdown-nya.

@@ -2,4 +2,10 @@ node_modules/
 .env
 .env.*
 database/
+!database/
+database/*
+!database/schema.sql
+!database/migrations/
+database/migrations/*
+!database/migrations/013_complaint_attachments.sql
 docs/
