@@ -210,6 +210,14 @@ async function main() {
       loanRecords.push({ id: loanResult.insertId, memberId: member.id, bookId: book.id, bookTitle: book.title, status, dueDate, fineTotal });
     }
 
+    const returnRequests = [
+      ...loanRecords.filter((loan) => loan.status === 'dipinjam').slice(0, 5),
+      ...loanRecords.filter((loan) => loan.status === 'terlambat').slice(0, 3),
+    ];
+    for (const loan of returnRequests) {
+      await connection.query('INSERT INTO loan_return_requests(loan_id,member_id) VALUES (?,?)', [loan.id, loan.memberId]);
+    }
+
     // Tagihan keterlambatan aktif dan riwayat denda peminjaman yang sudah dibayar.
     const overdueLoans = loanRecords.filter((loan) => loan.status === 'terlambat');
     for (let index = 0; index < overdueLoans.length; index += 1) {

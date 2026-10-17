@@ -9,4 +9,5 @@ database/*
 !database/migrations/
 database/migrations/*
 !database/migrations/013_complaint_attachments.sql
+!database/migrations/014_loan_return_requests.sql
 docs/
