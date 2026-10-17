@@ -5,6 +5,7 @@ database/
 !database/
 database/*
 !database/schema.sql
+!database/seed-testing.js
 !database/migrations/
 database/migrations/*
 !database/migrations/013_complaint_attachments.sql
